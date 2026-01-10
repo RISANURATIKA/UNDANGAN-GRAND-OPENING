@@ -1,0 +1,3 @@
+- [x] Update index.html to add Google Fonts link for 'Playfair Display'
+- [ ] Update styles.css with Pertamina color scheme, improved fonts, gradients, shadows, and spacing
+- [ ] Open index.html in browser to verify the attractive appearance
