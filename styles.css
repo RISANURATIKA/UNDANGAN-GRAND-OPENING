@@ -3,7 +3,7 @@
 :root {
     --primary-color: #2E8B57; /* Sea Green */
     --secondary-color: #1E3A8A; /* Dark Blue */
-    --accent-color: #FFD700; /* Gold */
+    --accent-color: #1E3A8A; /* Gold */
     --text-color: #1F2937; /* Dark Gray */
     --bg-color: linear-gradient(135deg, #F3F4F6, #E5E7EB);
     --card-bg: linear-gradient(145deg, #FFFFFF, #F9FAFB);
@@ -360,4 +360,5 @@ h2 {
     .slide-content { padding: 40px 25px; }
     h2 { font-size: 2rem; }
     .navigation { padding: 0 25px 25px; }
+
 }
