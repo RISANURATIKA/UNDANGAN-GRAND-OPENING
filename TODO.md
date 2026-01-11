@@ -1,9 +1,0 @@
-- [x] Update CSS color scheme to modern palette (e.g., gradients, darker accents)
-- [x] Add modern background gradients and shadows to slides
-- [x] Enhance cover animation and styling
-- [x] Improve navigation buttons with modern styles and hover effects
-- [x] Add subtle animations and transitions to slides
-- [x] Update typography for better hierarchy and readability
-- [x] Add visual enhancements like borders, icons, or decorative elements
-- [x] Ensure improved responsiveness for mobile devices
-- [x] Test the updated design in browser
