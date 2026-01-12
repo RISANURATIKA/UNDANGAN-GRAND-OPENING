@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700&display=swap');
 
 :root {
-    --primary-color: #2E8B57; /* Sea Green */
+    --primary-color: #000000; /* Sea Green */
     --secondary-color: #1E3A8A; /* Dark Blue */
     --accent-color: #1E3A8A; /* Gold */
     --text-color: #1F2937; /* Dark Gray */
@@ -361,4 +361,5 @@ h2 {
     .slide-content { padding: 40px 25px; }
     h2 { font-size: 2rem; }
     .navigation { padding: 0 25px 25px; }
+
 }
