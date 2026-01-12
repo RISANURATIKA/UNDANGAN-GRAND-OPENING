@@ -145,13 +145,14 @@
     openBtn.addEventListener("click", () => {
         cover.style.display = "none";
         invitation.style.display = "block";
-        window.scrollTo(0, 0);
+
         currentSlide = 0;
-        updateSlides();
+        updateSlides(); // 🔑 slide diaktifkan DI SINI
 
         window.scrollTo(0, 0);
     });
 </script>
+
 
 <!-- SCRIPT 3: NAVIGASI SLIDE -->
 <script>
@@ -190,9 +191,10 @@
         });
     });
 
-    updateSlides();
+  
 </script>
 
 </body>
 </html>
+
 
