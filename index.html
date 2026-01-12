@@ -114,6 +114,11 @@
 
 <!-- SCRIPT 1: BATASI NAMA TAMU -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ===============================
+       1. BATASI NAMA TAMU
+    =============================== */
     const daftarTamu = [
         "Pak Aji",
         "Ibu Siti",
@@ -127,35 +132,24 @@
     const nama = namaAsli ? namaAsli.toLowerCase() : null;
 
     const namaTamu = document.getElementById("namaTamu");
+    const openBtn = document.getElementById("open-btn");
+
+    let tamuValid = false;
 
     if (nama && daftarTamu.includes(nama)) {
         namaTamu.innerText = namaAsli;
+        tamuValid = true;
     } else {
         namaTamu.innerText = "Undangan Tidak Terdaftar";
         namaTamu.style.color = "red";
+        openBtn.disabled = true;
+        openBtn.style.opacity = "0.5";
+        openBtn.style.cursor = "not-allowed";
     }
-</script>
 
-<!-- SCRIPT 2: TOMBOL BUKA UNDANGAN -->
-<script>
-    const openBtn = document.getElementById("open-btn");
-    const cover = document.getElementById("cover");
-    const invitation = document.getElementById("invitation");
-
-    openBtn.addEventListener("click", () => {
-        cover.style.display = "none";
-        invitation.style.display = "block";
-
-        currentSlide = 0;
-        updateSlides(); // 🔑 slide diaktifkan DI SINI
-
-        window.scrollTo(0, 0);
-    });
-</script>
-
-
-<!-- SCRIPT 3: NAVIGASI SLIDE -->
-<script>
+    /* ===============================
+       2. NAVIGASI SLIDE
+    =============================== */
     let currentSlide = 0;
     const slides = document.querySelectorAll(".slide");
 
@@ -191,10 +185,28 @@
         });
     });
 
-  
+    /* ===============================
+       3. TOMBOL BUKA UNDANGAN
+    =============================== */
+    const cover = document.getElementById("cover");
+    const invitation = document.getElementById("invitation");
+
+    openBtn.addEventListener("click", () => {
+        if (!tamuValid) return;
+
+        cover.style.display = "none";
+        invitation.style.display = "block";
+
+        currentSlide = 0;
+        updateSlides();
+    });
+
+});
 </script>
+
 
 </body>
 </html>
+
 
 
