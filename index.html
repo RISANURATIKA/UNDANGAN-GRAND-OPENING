@@ -15,7 +15,8 @@
         <div class="cover-content">
             <h1>UNDANGAN</h1>
             <p>Kepada yth:</p>
-             <p>Achmad Lutfi Febrianto</p>
+<h2 id="namaTamu">Tamu Undangan</h2>
+             <!-- <p>Achmad Lutfi Febrianto</p> -->
             <!-- <p>Klik untuk membuka undangan</p> -->
             <button id="open-btn" class="open-btn">Buka Undangan</button>
         </div>
@@ -102,49 +103,33 @@
         </div>
     </div>
 
-    <script>
-        const openBtn = document.getElementById('open-btn');
-        const cover = document.getElementById('cover');
-        const invitation = document.getElementById('invitation');
-        const slides = document.querySelectorAll('.slide');
-        const nextBtns = document.querySelectorAll('.next-btn');
-        const prevBtns = document.querySelectorAll('.prev-btn');
+    
 
-        let currentSlide = 0;
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-            });
-            slides[index].classList.add('active');
-            currentSlide = index;
-        }
+<script>
+    // 🔒 DAFTAR NAMA TAMU (EDIT SESUAI KEBUTUHAN)
+    const daftarTamu = [
+        "Pak Aji",
+        "Ibu Siti",
+        "Bapak Budi",
+        "Dr. Andi",
+        "Tim IT RS"
+    ].map(n => n.toLowerCase());
 
-        openBtn.addEventListener('click', () => {
-            cover.classList.add('hide');
-            setTimeout(() => {
-                cover.style.display = 'none';
-                invitation.style.display = 'block';
-                showSlide(0);
-            }, 500);
-        });
+    const params = new URLSearchParams(window.location.search);
+    const namaAsli = params.get("to");
+    const nama = namaAsli ? namaAsli.toLowerCase() : null;
 
-        nextBtns.forEach((btn, i) => {
-            btn.addEventListener('click', () => {
-                if (currentSlide < slides.length - 1) {
-                    showSlide(currentSlide + 1);
-                }
-            });
-        });
+    const namaTamu = document.getElementById("namaTamu");
 
-        prevBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentSlide > 0) {
-                    showSlide(currentSlide - 1);
-                }
-            });
-        });
-    </script>
+    if (nama && daftarTamu.includes(nama)) {
+        namaTamu.innerText = namaAsli;
+    } else {
+        namaTamu.innerText = "Undangan Tidak Terdaftar";
+        namaTamu.style.color = "red";
+    }
+</script>
+
 </body>
 </html>
 
