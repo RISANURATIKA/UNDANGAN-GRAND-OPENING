@@ -137,10 +137,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let tamuValid = false;
 
     if (nama && daftarTamu.includes(nama)) {
-        namaTamu.innerText = namaAsli;
+        namaTamu.textContent = namaAsli;
         tamuValid = true;
     } else {
-        namaTamu.innerText = "Undangan Tidak Terdaftar";
+        namaTamu.textContent = "Undangan Tidak Terdaftar";
         namaTamu.style.color = "red";
         openBtn.disabled = true;
         openBtn.style.opacity = "0.5";
@@ -148,22 +148,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ===============================
-       2. NAVIGASI SLIDE
+       2. SLIDE SYSTEM (PAKAI .active)
     =============================== */
-    let currentSlide = 0;
     const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
 
-    function updateSlides() {
-        slides.forEach((slide, index) => {
-            slide.style.display = index === currentSlide ? "block" : "none";
-
-            const prevBtn = slide.querySelector(".prev-btn");
-            const nextBtn = slide.querySelector(".next-btn");
-
-            if (prevBtn) prevBtn.disabled = currentSlide === 0;
-            if (nextBtn) nextBtn.disabled = currentSlide === slides.length - 1;
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
         });
-
         window.scrollTo(0, 0);
     }
 
@@ -171,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.addEventListener("click", () => {
             if (currentSlide < slides.length - 1) {
                 currentSlide++;
-                updateSlides();
+                showSlide(currentSlide);
             }
         });
     });
@@ -180,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.addEventListener("click", () => {
             if (currentSlide > 0) {
                 currentSlide--;
-                updateSlides();
+                showSlide(currentSlide);
             }
         });
     });
@@ -194,19 +187,21 @@ document.addEventListener("DOMContentLoaded", function () {
     openBtn.addEventListener("click", () => {
         if (!tamuValid) return;
 
-        cover.style.display = "none";
+        cover.classList.add("hide");
         invitation.style.display = "block";
 
         currentSlide = 0;
-        updateSlides();
+        showSlide(0); // 🔥 WAJIB
     });
 
 });
 </script>
 
 
+
 </body>
 </html>
+
 
 
 
